@@ -43,7 +43,7 @@ export default function OptInForm() {
           'Lead',
           {email: data.email, phone: data.phone, externalID: id},
         );
-        gtagSendEvent();
+        gtagSendEvent('vgA_CIeVgrUbELavzeAo');
         setCookie('lead', {...data, id});
       })
       .catch(() => {

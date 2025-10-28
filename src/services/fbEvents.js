@@ -32,9 +32,9 @@ export default function fbEvent(
     .catch(err => console.log(err));
 }
 
-export function gtagSendEvent() {
+export function gtagSendEvent(conversionId) {
   gtag('event', 'conversion', {
-    'send_to': 'AW-10940012470/vgA_CIeVgrUbELavzeAo',
+    'send_to': `${process.env.G_ANALYTICS}/${conversionId}`,
     'event_callback': () => {}
   });
   return false;

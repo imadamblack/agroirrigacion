@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { info } from '../../info';
 import { content } from '../../content';
@@ -6,8 +6,8 @@ import { content } from '../../content';
 import OptInForm from '../components/form/opt-in-form';
 import Link from 'next/link';
 import Blockbuster from '../components/blockbuster';
-import Faqs from '../components/faqs';
 import scrollDepth from '../utils/scrollDepth';
+import { gtagSendEvent } from '../services/fbEvents';
 
 export default function Index() {
   const [lastClick, setLastClick] = useState('');
@@ -52,7 +52,10 @@ export default function Index() {
 
           <div className="flex flex-col md:w-2/3 md:flex-row justify-start items-start mt-20 gap-4">
             <Link href={`tel:${info.phoneNumber}`}>
-              <a className="button-secondary !w-full md:!w-1/3 mb-4">{'Llámanos'}</a>
+              <a
+                onClick={() => gtagSendEvent('9qCYCImf17UbELavzeAo')}
+                className="button-secondary !w-full md:!w-1/3 mb-4"
+              >{'Llámanos'}</a>
             </Link>
             <Link href="#contact">
               <a className="button !w-full mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
@@ -271,6 +274,7 @@ export default function Index() {
         className='fixed inset-x-0 bottom-4 px-8 z-[9999] isolate'>
         <div className='flex justify-center lg:justify-end'>
           <a
+            onClick={() => gtagSendEvent('sNN2CIyf17UbELavzeAo')}
             href={`https://wa.me/${info.whatsapp.value}`}
             target="_blank"
             className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg !tracking-normal'
