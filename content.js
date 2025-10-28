@@ -15,7 +15,7 @@ export const content = {
       description: '',
     },
     content: {
-      paragraph: 'Nos dedicamos al diseño instalación y venta de sistemas de riego agricola, con 20 años de experiencia para sugerirte el sistema agrónomo e hidráulicos mas eficiente para tus cultivos y tu inversión se vea reflejada en mayor producción al irrigar y distribuir el agua en cada planta.',
+      paragraph: 'Somos una empresa nacida en la ciudad de Guadalajara, tenemos mas de 20 años de experiencia en el mercado y contamos con las herramientas y conocimientos necesarios para sugerirte el mejor diseño de irrigación agronómico e hidráulico y tecnificado que tu cultivo necesita.',
       items: [
         {
           title: 'Diseño de riego',

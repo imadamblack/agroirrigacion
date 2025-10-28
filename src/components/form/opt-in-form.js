@@ -117,13 +117,12 @@ export default function OptInForm() {
           <Radio
             name="cropType"
             inputOptions={{required: true}}
-            optCols={2}
+            optCols={1}
             options={[
+              {value: 'aguacate', label: 'Aguacates'},
               {value: 'berries', label: 'Berries'},
-              {value: 'frutales', label: 'Frutales'},
-              {value: 'hortalizas', label: 'Hortalizas'},
-              {value: 'brasicas', label: 'Brassicas'},
-              {value: 'ornamentales', label: 'Ornamentales'},
+              {value: 'citricos', label: 'Cítricos'},
+              {value: 'caña-maiz', label: 'Caña y/o maíz'},
               {value: 'otro', label: 'Otro'},
             ]}
           />

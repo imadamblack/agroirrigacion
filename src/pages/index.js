@@ -194,13 +194,66 @@ export default function Index() {
         </section>
       }
 
+      {/*UBICACION*/}
+
+      <section id="ubicacion" className="border-t-2 border-brand-1">
+        <div className="container py-20">
+          <h2 className="text-center py-20 font-bold text-brand-1">En dónde nos ubicamos</h2>
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch">
+            <div className="w-full">
+              <h3 className="font-semibold">Matriz</h3>
+              <p>
+                {info.address.address}<br/>
+                {info.address.col}, {info.address.cp} <br/>
+                {info.address.city}, {info.address.state}
+              </p>
+              <div className="relative w-full aspect-square md:aspect-video mt-8">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.4681861019412!2d-103.33406!3d20.650523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b23dc045f995%3A0xef5ed936e20e2dab!2sSistemas%20de%20riego%20Agr%C3%ADcola%20-%20Agro%20irrigaci%C3%B3n!5e0!3m2!1sen!2smx!4v1761672180061!5m2!1sen!2smx"
+                  style={{position: 'absolute', inset: 0, border: 0, width: '100%', height: '100%'}}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación: Av. Jaime Balmes 11, Polanco, CDMX"
+                />
+              </div>
+            </div>
+
+            <div className="w-full">
+              <h3 className="font-semibold">Suc. Tala</h3>
+              <p>
+                Carr. Guadalajara-Ameca<br/>
+                KM 16 +200 6A<br/>
+                Tala, JAL
+              </p>
+              <div className="relative w-full aspect-square md:aspect-video mt-8">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238870.2550873402!2d-103.80108030123478!3d20.69609933272301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8426050022f8535b%3A0x4f48a628dd8a0fe6!2sSistemas%20de%20riego-Agro%20irrigacion!5e0!3m2!1sen!2smx!4v1761672461999!5m2!1sen!2smx"
+                  style={{position: 'absolute', inset: 0, border: 0, width: '100%', height: '100%'}}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación: Av. Jaime Balmes 11, Polanco, CDMX"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center mt-20">
+            <Link href="#contact">
+              <a className="button mb-4">Contáctanos y visítanos</a>
+            </Link>
+            <p className="-ft-1">{hero.cta.second}</p>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
       <section id="contact"
                className="border-t-2 border-brand-1 bg-white
                 bg-center bg-cover py-20 z-[99999]">
         <div className="container">
           <div className="w-full md:w-1/2 mx-auto">
-            <h2 className="!font-bold text-brand-1">
+          <h2 className="!font-bold text-brand-1">
               {cta.main}
             </h2>
             <div className="mt-20 mb-12">
