@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { getCookie, setCookie } from 'cookies-next';
 import { useState } from 'react';
 import { restrictNumber, emailRegExp } from '../../utils/formValidators';
-import fbEvent from '../../services/fbEvents';
+import fbEvent, { gtagSendEvent } from '../../services/fbEvents';
 import { Radio, Select } from './formAtoms';
 import { mexicanStates } from '../../catalogs/mexican-states';
 
@@ -43,6 +43,7 @@ export default function OptInForm() {
           'Lead',
           {email: data.email, phone: data.phone, externalID: id},
         );
+        gtagSendEvent();
         setCookie('lead', {...data, id});
       })
       .catch(() => {

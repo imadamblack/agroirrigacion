@@ -34,7 +34,7 @@ export default function fbEvent(
 
 export function gtagSendEvent() {
   gtag('event', 'conversion', {
-    'send_to': 'AW-17649963646/_MzdCKfprrEbEP6klOBB',
+    'send_to': 'AW-10940012470/vgA_CIeVgrUbELavzeAo',
     'event_callback': () => {}
   });
   return false;
