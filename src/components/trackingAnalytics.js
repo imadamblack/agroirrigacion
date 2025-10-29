@@ -25,14 +25,14 @@ export default function TrackingAnalytics() {
       `,
       }}/>
 
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.G_ANALYTICS}`}/>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_G_ANALYTICS}`}/>
       <script dangerouslySetInnerHTML={{
         __html: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', '${process.env.G_ANALYTICS}');`,
+        gtag('config', '${process.env.NEXT_PUBLIC_G_ANALYTICS}');`,
       }}/>
 
 

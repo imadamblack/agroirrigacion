@@ -148,11 +148,7 @@ export default function OptInForm() {
         <a
           href={`https://wa.me/${info.whatsapp.value}`}
           className={`button !bg-transparent !text-brand-5 !w-full`}
-        >{
-          !sending
-            ? 'Contactar vía WhatsApp →'
-            : <span className="material-symbols-outlined animate-spin">progress_activity</span>
-        }</a>
+        >Contactar vía WhatsApp →</a>
 
         <div className="mt-4">
           <p className="-ft-3 text-center text-white">Al dar clic aceptas nuestra&nbsp;

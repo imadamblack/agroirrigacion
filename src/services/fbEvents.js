@@ -33,8 +33,10 @@ export default function fbEvent(
 }
 
 export function gtagSendEvent(conversionId) {
+  console.log('Triggered', `${process.env.NEXT_PUBLIC_G_ANALYTICS}/${conversionId}`);
+
   gtag('event', 'conversion', {
-    'send_to': `${process.env.G_ANALYTICS}/${conversionId}`,
+    'send_to': `${process.env.NEXT_PUBLIC_G_ANALYTICS}/${conversionId}`,
     'event_callback': () => {}
   });
   return false;
