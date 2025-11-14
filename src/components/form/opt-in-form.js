@@ -9,7 +9,7 @@ import fbEvent, { gtagSendEvent } from '../../services/fbEvents';
 import { Radio, Select } from './formAtoms';
 import { mexicanStates } from '../../catalogs/mexican-states';
 
-export default function OptInForm() {
+export default function OptInForm({lastClick, utm}) {
   const [sending, setSending] = useState(false);
   const router = useRouter();
 
@@ -23,12 +23,12 @@ export default function OptInForm() {
 
   const onSubmit = (data) => {
     setSending(true);
-    data.phone = '52' + data.phone.replace(/^(MX)?\+?(52)?\s?0?1?|\s|\(|\)|-|[a-zA-Z]/g, '');
+    data.phone = '521' + data.phone.replace(/^(MX)?\+?(52)?\s?0?1?|\s|\(|\)|-|[a-zA-Z]/g, '');
     data.origin = 'Notoriovs Landing';
 
     const _fbc = getCookie('_fbc');
     const _fbp = getCookie('_fbp');
-    const payload = {...data, _fbc, _fbp};
+    const payload = {...data, _fbc, _fbp, ...utm, lastClick};
 
     fetch(info.optInWebhook, {
       method: 'POST',

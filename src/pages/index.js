@@ -9,7 +9,7 @@ import Blockbuster from '../components/blockbuster';
 import scrollDepth from '../utils/scrollDepth';
 import { gtagSendEvent } from '../services/fbEvents';
 
-export default function Index() {
+export default function Index({utm}) {
   const [lastClick, setLastClick] = useState('');
 
   useEffect(() => {
@@ -265,6 +265,7 @@ export default function Index() {
             </div>
             <OptInForm
               lastClick={lastClick}
+              utm={utm}
             />
           </div>
         </div>
@@ -287,4 +288,44 @@ export default function Index() {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const { req, query } = ctx;
+  const cookiesHeader = req.headers.cookie || '';
+
+  const keys = ['utm', '_fbc', '_fbp'];
+  const cookies = {};
+
+  for (const key of keys) {
+    const raw = cookiesHeader
+      .split('; ')
+      .find(c => c.startsWith(`${key}=`))
+      ?.split('=')[1];
+
+    if (!raw) continue;
+
+    try {
+      const clean = raw.startsWith('j%3A') ? raw.slice(4) : raw;
+      cookies[key] = JSON.parse(decodeURIComponent(clean));
+    } catch {
+      cookies[key] = decodeURIComponent(raw);
+    }
+  }
+
+  // --- Revisar params UTM del query ---
+  const utmFromQuery = {};
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
+    if (query[param]) utmFromQuery[param] = query[param];
+  });
+
+  // Si hay params en la URL, se usan; si no, cae en cookie
+  const utm =
+    Object.keys(utmFromQuery).length > 0
+      ? utmFromQuery
+      : cookies.utm ?? null;
+
+  return {
+    props: {utm},
+  };
 }
