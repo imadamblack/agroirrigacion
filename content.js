@@ -7,7 +7,7 @@ export const content = {
     content: {
       paragraph: null,
     },
-    cta: {main: 'Cotiza tu sistema de riego'},
+    cta: {main: 'Cotiza tu riego agrícola'},
   },
   beneficios: {
     banner: {

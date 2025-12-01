@@ -35,9 +35,11 @@ export default function Index({utm}) {
         className="relative min-h-[80rem] w-full flex flex-col md:justify-end items-center bg-brand-1 overflow-hidden">
         <div className="relative min-h-[32rem] flex-grow w-full md:absolute top-0 inset-x-0 bottom-1/2 md:bottom-0">
 
-          <div className="hidden md:flex absolute inset-0 bg-gradient-to-tr from-brand-1 via-transparent to-cyan-400 z-10"/>
-          <div className="hidden md:flex absolute inset-0 bg-gradient-to-br from-brand-1 via-transparent to-[#49ea60] opacity-50 z-10"/>
-          <div className="hidden md:flex absolute inset-0 bg-black opacity-30 z-10"/>
+          <div
+            className="hidden md:flex absolute inset-0 bg-gradient-to-tr from-brand-1 via-transparent to-cyan-400"/>
+          <div
+            className="hidden md:flex absolute inset-0 bg-gradient-to-br from-brand-1 via-transparent to-[#49ea60] opacity-50"/>
+          <div className="hidden md:flex absolute inset-0 bg-black opacity-30"/>
 
           <Image src="/landing/hero.jpg" layout="fill" className="object-cover object-right"/>
 
@@ -69,7 +71,8 @@ export default function Index({utm}) {
       {catalogo != null &&
         <section id="catalogo">
           <div className="reading-container my-20">
-            <h2 className="text-brand-1 text-center font-semibold" dangerouslySetInnerHTML={{__html: catalogo.banner.title}}/>
+            <h2 className="text-brand-1 text-center font-semibold"
+                dangerouslySetInnerHTML={{__html: catalogo.banner.title}}/>
           </div>
           <div className="px-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 items-stretch">
@@ -143,7 +146,7 @@ export default function Index({utm}) {
               <div className="flex flex-col w-full gap-4">
 
                 <div className="relative pt-[100%]">
-                  <div className="absolute inset-8 aspect-square overflow-hidden z-10">
+                  <div className="absolute inset-8 aspect-square overflow-hidden">
                     <Image src={`/landing/${i.img}`} layout="fill" objectFit="contain"/>
                   </div>
                 </div>
@@ -241,22 +244,33 @@ export default function Index({utm}) {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center mt-20">
-            <Link href="#contact">
-              <a className="button mb-4">Contáctanos y visítanos</a>
-            </Link>
-            <p className="-ft-1">{hero.cta.second}</p>
-          </div>
         </div>
       </section>
+
+      <div
+        className="sticky inset-x-0 bottom-4 px-8 isolate mb-12 z-20">
+        <div className="flex justify-center lg:justify-end">
+          <a
+            onClick={() => gtagSendEvent('9qCYCImf17UbELavzeAo')}
+            href={`tel:${info.phoneNumber}`}
+            target="_blank"
+            className="button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg"
+          >
+                  <span className="filter invert h-[18px] w-[18px] mt-2 mr-4">
+                    <Image src="/phone.png" layout="fill"/>
+                  </span>
+            <p className="ft-3">Llámanos</p>
+          </a>
+        </div>
+      </div>
 
       {/* CONTACT */}
       <section id="contact"
                className="border-t-2 border-brand-1 bg-white
-                bg-center bg-cover py-20 z-[99999]">
+                bg-center bg-cover py-20">
         <div className="container">
           <div className="w-full md:w-1/2 mx-auto">
-          <h2 className="!font-bold text-brand-1">
+            <h2 className="!font-bold text-brand-1">
               {cta.main}
             </h2>
             <div className="mt-20 mb-12">
@@ -270,28 +284,12 @@ export default function Index({utm}) {
           </div>
         </div>
       </section>
-
-      <div
-        className='fixed inset-x-0 bottom-4 px-8 z-[9999] isolate'>
-        <div className='flex justify-center lg:justify-end'>
-          <a
-            onClick={() => gtagSendEvent('sNN2CIyf17UbELavzeAo')}
-            href={`https://wa.me/${info.whatsapp.value}`}
-            target="_blank"
-            className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg !tracking-normal'
-          >
-            <span className="filter invert mr-4"><Image src="/whatsapp.svg" width={24} height={24}/></span>
-            Mándanos un WhatsApp
-          </a>
-
-        </div>
-      </div>
     </>
   );
 }
 
 export async function getServerSideProps(ctx) {
-  const { req, query } = ctx;
+  const {req, query} = ctx;
   const cookiesHeader = req.headers.cookie || '';
 
   const keys = ['utm', '_fbc', '_fbp'];

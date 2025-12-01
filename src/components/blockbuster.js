@@ -10,7 +10,7 @@ export default function Blockbuster({overhead, title, description, background}) 
         className={`relative flex flex-col justify-end min-h-[60vh] w-screen md:mb-0 mx-auto py-12 md:py-20 ${bg} bg-center bg-cover`}>
         <div className="absolute inset-0 bg-gradient-to-tr from-black to-transparent opacity-60 z-0]"/>
 
-        <div className="container mx-auto z-20">
+        <div className="container mx-auto z-10">
           <div className="flex flex-col md:flex-row items-stretch justify-stretch">
             <div className="w-full p-8 md:p-14">
               {/*<p className="overhead">{overhead}</p>*/}
