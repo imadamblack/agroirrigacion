@@ -7,7 +7,7 @@ export const content = {
     content: {
       paragraph: null,
     },
-    cta: {main: 'Cotiza tu riego agrícola'},
+    cta: {main: 'Cotiza tu proyecto de riego'},
   },
   beneficios: {
     banner: {
@@ -128,7 +128,7 @@ export const content = {
     },
   },
   cta: {
-    main: 'Contactanos para diseñar el riego para tus cultivos',
+    main: 'Contactanos para diseñar tu proyecto de riego agrícola',
     secondary: '',
     paragraph: '',
   },

@@ -47,7 +47,7 @@ export default function Index({utm}) {
 
         <div className="container min-h-[40rem] text-white w-full text-left z-20 py-20">
           <h1
-            className="text-white lg:w-2/3 relative ft-10 font-semibold">
+            className="text-white lg:w-2/3 relative ft-10 font-semibold md:[text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">
             {hero.banner.title}
           </h1>
           <p className="text-white lg:w-2/3 ft-3 mt-16" dangerouslySetInnerHTML={{__html: hero.banner.description}}/>

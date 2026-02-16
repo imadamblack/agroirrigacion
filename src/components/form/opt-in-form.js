@@ -131,10 +131,24 @@ export default function OptInForm({lastClick, utm}) {
         <input
           {...register(
             'hectare',
+            {min: {value: 1, message: 'Por el momento solo implementamos proyectos de al menos 2 hectáreas'}}
           )}
           className={errors.hectare && '!bg-red-200'}
           onKeyDown={restrictNumber}
           placeholder="Hectáreas de cultivo (en número)"/>
+        {<span className="-ft-2 text-red-500">{errors.hectare?.message}</span>}
+
+        <Select
+          options={[
+            {value: 'urgente', name:'Me urge para este mes'},
+            {value: 'meses', name: 'En un par de meses'},
+            {value: 'no-sabe', name: 'Apenas estoy revisando'}
+          ]}
+          name="timeframe"
+          inputOptions={{required: true}}
+          placeholder="Cuándo necesitas instalar tu riego?"
+          className={`rounded-md px-6 py-4 bg-white ${errors.state && '!bg-red-200'}`}
+        />
 
         <button
           disabled={sending}
